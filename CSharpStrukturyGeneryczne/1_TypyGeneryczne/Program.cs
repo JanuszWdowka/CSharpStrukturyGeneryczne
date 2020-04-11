@@ -10,6 +10,14 @@ namespace _1_TypyGeneryczne
     {
         static void Main(string[] args)
         {
+            KolejkaKolowa kolej = new KolejkaKolowa(3);
+            kolej.Zapisz(1);
+            kolej.Zapisz(2);
+            kolej.Zapisz(3);
+            kolej.Zapisz(4);
+            Console.WriteLine(kolej.Czytaj());
+            Console.WriteLine(kolej.Czytaj());
+            Console.WriteLine(kolej.Czytaj());
         }
     }
 }
