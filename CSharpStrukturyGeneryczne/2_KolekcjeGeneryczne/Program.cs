@@ -7,10 +7,46 @@ namespace _2_KolekcjeGeneryczne
     {
         static void Main(string[] args)
         {
-            Kolejka();
-            Stos();
-            HashSet();
+            //Kolejka();
+            //Stos();
+            //HashSet();
+            //LinkedList();
 
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(5);
+            lista.AddFirst(6);
+            lista.AddFirst(7);
+
+            var elementPierwszy = lista.First;
+            var elementOstatni = lista.Last;
+
+            lista.AddAfter(elementPierwszy, 10);
+            lista.AddBefore(elementPierwszy, 20);
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
+            var wezel = lista.First;
+            while (wezel != null)
+            {
+                Console.WriteLine(wezel.Value);
+                wezel = wezel.Next;
+            }
+        }
+
+        private static void LinkedList()
+        {
+            LinkedList<int> lista = new LinkedList<int>();
+            lista.AddFirst(5);
+            lista.AddFirst(6);
+            lista.AddFirst(7);
+            lista.AddLast(1);
+            lista.AddLast(2);
+
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void HashSet()
