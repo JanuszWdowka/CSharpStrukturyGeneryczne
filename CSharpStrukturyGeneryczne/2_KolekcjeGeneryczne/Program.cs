@@ -12,7 +12,14 @@ namespace _2_KolekcjeGeneryczne
             //HashSet();
             //LinkedList();
             //LinkedList2();
+            //Disctionary();
 
+
+
+        }
+
+        private static void Disctionary()
+        {
             var pracownicy = new Dictionary<string, List<Pracownik>>();
             pracownicy.Add("Ksiegowosc", new List<Pracownik>() { new Pracownik { Nazwisko = "Nowak" },
                                                                  new Pracownik { Nazwisko = "Kowal" },
@@ -37,7 +44,6 @@ namespace _2_KolekcjeGeneryczne
             {
                 Console.WriteLine(item.Nazwisko);
             }
-
         }
 
         private static void LinkedList2()
