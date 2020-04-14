@@ -13,7 +13,28 @@ namespace _2_KolekcjeGeneryczne
             //LinkedList();
             //LinkedList2();
             //Disctionary();
+            //SortedDictionary();
+            SortedList();
 
+        }
+        //mniej pamieci szybka iteracja
+        private static void SortedList()
+        {
+            var listaPosortowana = new SortedList<int, string>();
+
+            listaPosortowana.Add(3, "trzy");
+            listaPosortowana.Add(1, "jeden");
+            listaPosortowana.Add(4, "cztery");
+            listaPosortowana.Add(2, "dwa");
+
+            foreach (var item in listaPosortowana)
+            {
+                Console.WriteLine(item.Value);
+            }
+        }
+        //po kluczu lepszy słownik wydajne dodawanie i usowanie uzytkownikow, ale wiecej pamieci
+        private static void SortedDictionary()
+        {
             var pracownicy = new SortedDictionary<string, List<Pracownik>>();
 
             pracownicy.Add("Sprzedaż", new List<Pracownik>() { new Pracownik {Imie = "Jan", Nazwisko = "Kowal" },
