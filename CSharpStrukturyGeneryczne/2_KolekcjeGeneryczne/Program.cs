@@ -7,20 +7,28 @@ namespace _2_KolekcjeGeneryczne
     {
         static void Main(string[] args)
         {
-            Queue<Pracownik> kolejka = new Queue<Pracownik>();
-            kolejka.Enqueue(new Pracownik { Imie = "Marcin", Nazwisko = "Nowak" });
-            kolejka.Enqueue(new Pracownik { Imie = "Tomek", Nazwisko = "Kowak" });
-            kolejka.Enqueue(new Pracownik { Imie = "Jacek", Nazwisko = "Zajac" });
-            kolejka.Enqueue(new Pracownik { Imie = "Ola", Nazwisko = "Kaczor" });
+            Kolejka();
+            Stos();
+            HashSet();
 
-            Console.WriteLine("Kolejka");
+        }
 
-            while (kolejka.Count > 0)
+        private static void HashSet()
+        {
+            HashSet<Pracownik> set = new HashSet<Pracownik>();
+            var pracownik = new Pracownik { Imie = "Marcin" };
+            set.Add(pracownik);
+            set.Add(pracownik);
+
+
+            foreach (var item in set)
             {
-                var pracownik = kolejka.Dequeue();
-                Console.WriteLine(pracownik.Imie + " " + pracownik.Nazwisko);
+                Console.WriteLine(item.Imie);
             }
+        }
 
+        private static void Stos()
+        {
             Stack<Pracownik> stos = new Stack<Pracownik>();
             stos.Push(new Pracownik { Imie = "Marcin", Nazwisko = "Nowak" });
             stos.Push(new Pracownik { Imie = "Tomek", Nazwisko = "Kowak" });
@@ -33,6 +41,23 @@ namespace _2_KolekcjeGeneryczne
             while (stos.Count > 0)
             {
                 var pracownik = stos.Pop();
+                Console.WriteLine(pracownik.Imie + " " + pracownik.Nazwisko);
+            }
+        }
+
+        private static void Kolejka()
+        {
+            Queue<Pracownik> kolejka = new Queue<Pracownik>();
+            kolejka.Enqueue(new Pracownik { Imie = "Marcin", Nazwisko = "Nowak" });
+            kolejka.Enqueue(new Pracownik { Imie = "Tomek", Nazwisko = "Kowak" });
+            kolejka.Enqueue(new Pracownik { Imie = "Jacek", Nazwisko = "Zajac" });
+            kolejka.Enqueue(new Pracownik { Imie = "Ola", Nazwisko = "Kaczor" });
+
+            Console.WriteLine("Kolejka");
+
+            while (kolejka.Count > 0)
+            {
+                var pracownik = kolejka.Dequeue();
                 Console.WriteLine(pracownik.Imie + " " + pracownik.Nazwisko);
             }
         }
