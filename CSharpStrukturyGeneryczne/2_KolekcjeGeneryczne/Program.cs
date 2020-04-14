@@ -11,7 +11,22 @@ namespace _2_KolekcjeGeneryczne
             //Stos();
             //HashSet();
             //LinkedList();
+            //LinkedList2();
 
+            var pracownicy = new Dictionary<string, Pracownik>();
+            pracownicy.Add("Nowak", new Pracownik { Nazwisko = "Nowak" });
+            pracownicy.Add("Kowal", new Pracownik { Nazwisko = "Kowal" });
+            pracownicy.Add("Kaczor", new Pracownik { Nazwisko = "Kaczor" });
+
+            var kowal = pracownicy["Kowal"];
+            foreach (var pracownik in pracownicy)
+            {
+                Console.WriteLine("{0}:{1}",pracownik.Key, pracownik.Value.Nazwisko);
+            }
+        }
+
+        private static void LinkedList2()
+        {
             LinkedList<int> lista = new LinkedList<int>();
             lista.AddFirst(5);
             lista.AddFirst(6);
