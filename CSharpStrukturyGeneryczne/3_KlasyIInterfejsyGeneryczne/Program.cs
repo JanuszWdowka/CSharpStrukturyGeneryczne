@@ -37,5 +37,4 @@ namespace _3_KlasyIInterfejsyGeneryczne
             }
         }
     }
-
 }
