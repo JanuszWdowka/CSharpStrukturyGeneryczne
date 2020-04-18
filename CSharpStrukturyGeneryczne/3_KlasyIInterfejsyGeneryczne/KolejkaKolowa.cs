@@ -1,6 +1,6 @@
 ﻿namespace _3_KlasyIInterfejsyGeneryczne
 {
-    public class KolejkaKolowa<T>
+    public class KolejkaKolowa<T> : IKolejka<T>
     {
         private T[] bufor;
         private int poczatekBufora;
