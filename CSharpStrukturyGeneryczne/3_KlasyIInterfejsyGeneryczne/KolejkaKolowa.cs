@@ -1,52 +1,29 @@
 ﻿namespace _3_KlasyIInterfejsyGeneryczne
 {
-    public class KolejkaKolowa<T> : IKolejka<T>
+    public class KolejkaKolowa<T> : DuzaKolejka<T>
     {
-        private T[] bufor;
-        private int poczatekBufora;
-        private int koniecBufora;
-        public KolejkaKolowa() : this(pojemnosc: 5)
-        {
+        private int _pojemosc;
 
-        }
-        public KolejkaKolowa(int pojemnosc)
+        public KolejkaKolowa(int pojemnosc = 5)
         {
-            bufor = new T[pojemnosc + 1];
-            poczatekBufora = 0;
-            koniecBufora = 0;
+            _pojemosc = pojemnosc;
         }
-        public void Zapisz(T wartosc)
+
+        public override void Zapisz(T wartosc)
         {
-            bufor[koniecBufora] = wartosc;
-            koniecBufora = (koniecBufora + 1) % bufor.Length;
-            if (koniecBufora == poczatekBufora)
-                poczatekBufora = (poczatekBufora + 1) % bufor.Length;
-        }
-        public T Czytaj()
-        {
-            var wynik = bufor[poczatekBufora];
-            poczatekBufora = (poczatekBufora + 1) % bufor.Length;
-            return wynik;
-        }
-        public int Pojemnosc
-        {
-            get
+            base.Zapisz(wartosc);
+
+            if(kolejka.Count > _pojemosc)
             {
-                return bufor.Length;
+                kolejka.Dequeue();
             }
         }
-        public bool JestPusty
+
+        public override bool JestPelny
         {
             get
             {
-                return koniecBufora == poczatekBufora;
-            }
-        }
-        public bool JestPelny
-        {
-            get
-            {
-                return (koniecBufora + 1) % bufor.Length == poczatekBufora;
+                return kolejka.Count == _pojemosc;
             }
         }
     }
