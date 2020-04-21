@@ -9,7 +9,9 @@ namespace _4_MetodyDelegatyGeneryczne
             var kolejka = new KolejkaKolowa<double>();
             WprowadzanieDanych(kolejka);
 
-            var elementJakoInt = kolejka.ElementJako<string>();
+            kolejka.Drukuj();
+
+            var elementJakoInt = kolejka.ElementJako<double, int>();
 
             foreach (var item in elementJakoInt)
             {
