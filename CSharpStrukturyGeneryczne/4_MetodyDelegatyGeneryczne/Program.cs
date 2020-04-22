@@ -8,10 +8,12 @@ namespace _4_MetodyDelegatyGeneryczne
         static void Main(string[] args)
         {
             Action<double> drukuj = x => Console.WriteLine(x);
-            drukuj(7.89);
 
-            Action<int, int, int> test = (a, b, c) => Console.WriteLine(a + b + c);
-            test(1, 2, 3);
+            Func<double, double> potegowanie = d => d * d;
+            Func<double, double, double> dodaj = (x, y) => x + y;
+
+            drukuj(potegowanie(5));
+            drukuj(dodaj(10, 20));
 
             var kolejka = new KolejkaKolowa<double>();
             WprowadzanieDanych(kolejka);
