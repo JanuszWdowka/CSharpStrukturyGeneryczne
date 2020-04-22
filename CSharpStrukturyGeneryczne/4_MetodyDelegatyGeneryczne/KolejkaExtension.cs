@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace _4_MetodyDelegatyGeneryczne
 {
-    public delegate void Drukarka<T>(T dane);
-
     public static class KolejkaExtension
     {
         public static IEnumerable<Twyjscie> ElementJako<T, Twyjscie>(this IKolejka<T> kolejka)
@@ -17,7 +16,7 @@ namespace _4_MetodyDelegatyGeneryczne
             }
         }
 
-        public static void Drukuj<T>(this IKolejka<T> kolejka, Drukarka<T> wydruk)
+        public static void Drukuj<T>(this IKolejka<T> kolejka, Action<T> wydruk)
         {
             foreach (var item in kolejka)
             {
