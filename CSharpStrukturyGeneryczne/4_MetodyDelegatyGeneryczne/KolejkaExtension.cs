@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
 
 namespace _4_MetodyDelegatyGeneryczne
 {
     public static class KolejkaExtension
     {
-        public static IEnumerable<Twyjscie> ElementJako<T, Twyjscie>(this IKolejka<T> kolejka)
+        public static IEnumerable<Twyjscie> Mapuj<T, Twyjscie>(this IKolejka<T> kolejka, Converter<T, Twyjscie> konwerter)
         {
-            var konwerter = TypeDescriptor.GetConverter(typeof(T));
-            foreach (var item in kolejka)
-            {
-                var wynik = konwerter.ConvertTo(item, typeof(Twyjscie));
-                yield return (Twyjscie)wynik;
-            }
+            return kolejka.Select(i => konwerter(i));
         }
 
         public static void Drukuj<T>(this IKolejka<T> kolejka, Action<T> wydruk)
